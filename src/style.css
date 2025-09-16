@@ -74,7 +74,6 @@ body {
   text-transform: uppercase;
   color: #fff; /* text-white */
   transition: background-color 0.3s ease; /* transition-colors duration-300 */
-  max-width: 20rem; /* max-w-xs */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md */
   outline: none; /* focus:outline-none */
 }
@@ -85,4 +84,52 @@ body {
 
 .btn:focus {
   box-shadow: 0 0 0 2px var(--color-p1), 0 0 0 4px white; /* focus:ring-2 focus:ring-offset-2 focus:ring-primary */
+}
+
+/* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX */
+
+.gradient-bg {
+  background: linear-gradient(
+    135deg,
+    var(--color-stone-950) 0%,
+    var(--color-stone-900) 50%,
+    var(--color-stone-800) 100%
+  );
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.floating-elements::before {
+  content: "";
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(
+    circle,
+    rgba(212, 175, 55, 0.1) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.floating-elements::after {
+  content: "";
+  position: absolute;
+  bottom: 20%;
+  left: 15%;
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(
+    circle,
+    rgba(139, 69, 19, 0.08) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
 }
