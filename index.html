@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/src/style.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="fixed top-0 z-20 w-full bg-white shadow-sm">
+    <div class="container mx-auto py-4 px-4 md:px-8">
+      <div class="flex items-center justify-between">
+        <a href="#" class="text-4xl ">TJ Studios</a>
+        <ul class="hidden md:flex items-center gap-4  uppercase">
+          <li><a href="#" class="cursor-pointer hover:text-stone-900">Início</a></li>
+          <li><a href="#" class="cursor-pointer hover:text-stone-900">Galeria</a></li>
+          <li class="hidden lg:inline"><a href="#" class="cursor-pointer hover:text-stone-900">Por Quê Nós</a></li>
+          <li class="hidden lg:inline"><a href="#" class="cursor-pointer hover:text-stone-900">Sobre</a></li>
+          <li><a href="#" class="cursor-pointer hover:text-stone-900">Testemunhas</a></li>
+          <li><a href="#" class="cursor-pointer hover:text-stone-900">FAQ</a></li>
+          <li>
+            <a href="#" class="font-bold cursor-pointer uppercase border-b border-stone-500
+            hover:text-stone-900  transition-transform duration-200">
+              Solicite um Orçamento
+            </a>
+          </li>
+        </ul>
+        <button id="menu-toggle" class="md:hidden focus:outline-none p-2" aria-label="Abrir menu">
+          <svg class="h-6 w-6 menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </button>
+      </div>
+      <ul id="mobile-menu" class="menu-hidden overflow-hidden bg-white md:hidden">
+        <li class="border-t border-stone-200 mt-4"><a href="#" class="block p-2">Início</a></li>
+        <li><a href="#" class="block p-2">Galeria</a></li>
+        <li><a href="#" class="block p-2">Por Quê Nós</a></li>
+        <li><a href="#" class="block p-2">Sobre</a></li>
+        <li><a href="#" class="block p-2">Testemunhas</a></li>
+        <li><a href="#" class="block p-2">FAQ</a></li>
+        <li class="mt-4 px-2 text-center">
+          <a href="#" class=" block bg-primary font-bold py-2 px-4 max-w-xs mx-auto text-center uppercase  text-white transition-colors duration-300 hover:bg-primary">
+            SOLICITE UM ORÇAMENTO
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="h-screen flex flex-col justify-center text-white bg-cover bg-center" style="background-image: url('bg-hero.jpeg');">
+    <div class="container mx-auto px-4 py-8  md:px-8 md:py-16">
+
+      <h1 class="mb-8 font-medium text-5xl md:text-6xl xl:text-7xl 2xl:text-8xl md:max-w-2/3">
+        Transformamos o inesquecível em memórias eternas.
+      </h1>
+      <a href="#" class="block  text-lg bg-primary font-bold py-2 px-4 text-center uppercase  text-white transition-colors duration-300 max-w-xs shadow-sm">
+        SOLICITE UM ORÇAMENTO
+      </a>
+    </div>
+  </section>
+
+  <section class="">
+    <div class="container mx-auto px-4 py-8  md:px-8 md:py-16">
+      <!-- Header -->
+      <div class="text-center mb-16">
+        <p class="mb-4 text-lg">
+          Minha missão é transformar a simplicidade do agora em memórias visualmente impressionantes e atemporais.
+        </p>
+        <h2 class="text-4xl md:text-5xl lg:text-6xl capitalize">
+          Onde momentos se tornam arte
+        </h2>
+      </div>
+
+
+      <div class="flex items-center justify-center gap-4 mb-16">
+        <div class="flex-1 transform transition-transform duration-300 hover:scale-105">
+          <div class="bg-white shadow-sm overflow-hidden h-48 md:h-80">
+            <img src="https://images.unsplash.com/photo-1502920514313-52581002a659?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Fotógrafo ao amanhecer" class="w-full h-full object-cover">
+          </div>
+        </div>
+
+        <div class="flex-1 transform transition-transform duration-300 hover:scale-105">
+          <div class="bg-white shadow-sm overflow-hidden h-56 md:h-100">
+            <img src="https://images.unsplash.com/photo-1554080353-a576cf803bda?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Mão segurando câmera com fumaça" class="w-full h-full object-cover">
+          </div>
+        </div>
+
+        <div class=" w-25/100 transform transition-transform duration-300 hover:scale-105">
+          <div class="bg-white shadow-sm overflow-hidden h-64 md:h-120">
+            <img src="https://images.unsplash.com/photo-1512756290469-ec264b7fbf87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Pessoa fotografando através de flores" class="w-full h-full object-cover">
+          </div>
+        </div>
+
+        <div class="flex-1 transform transition-transform duration-300 hover:scale-105">
+          <div class="bg-white shadow-sm overflow-hidden h-56 md:h-100">
+            <img src="https://images.unsplash.com/photo-1757331919176-eeb4e5ae173c?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Traseira de um carro esportivo dourado" class="w-full h-full object-cover">
+          </div>
+        </div>
+
+        <div class="flex-1 transform transition-transform duration-300 hover:scale-105">
+          <div class="bg-white shadow-sm overflow-hidden h-48 md:h-80">
+            <img src="https://images.unsplash.com/photo-1611651338412-8403fa6e3599?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Praia com guarda-sóis de palha" class="w-full h-full object-cover">
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <!-- Navigation -->
+      <div class="flex items-center justify-center gap-8">
+        <button class="p-3 rounded-full border border-stone-300 hover:border-stone-400 hover:bg-white transition-all duration-200 group cursor-pointer">
+          <svg class="w-6 h-6 text-stone-500 group-hover:text-stone-700 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+
+
+
+        <div class="text-center">
+          <h3 class="text-2xl md:text-3xl text-stone-700">Adolfo & Iza</h3>
+        </div>
+
+        <button class="p-3 rounded-full border border-stone-300 hover:border-stone-400 hover:bg-white transition-all duration-200 group cursor-pointer">
+          <svg class="w-6 h-6 text-stone-500 group-hover:text-stone-700 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+
+
+  <script type="module" src="./src/main.js"></script>
+
+</body>
+
+</html>

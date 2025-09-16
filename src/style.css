@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+body {
+  font-family: "Cormorant Garamond", serif;
+  color: oklch(37.4% 0.01 67.558);
+}
+
+@theme {
+  --color-primary: #93a996;
+}
+
+.menu-enter {
+  animation: slideDown 0.3s ease-out forwards;
+}
+
+.menu-exit {
+  animation: slideUp 0.3s ease-in forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 400px;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 400px;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+    max-height: 0;
+  }
+}
+
+.menu-hidden {
+  display: none;
+}
+
+/* Animação do ícone hambúrguer */
+.menu-icon {
+  transition: transform 0.3s ease;
+}
+
+.menu-icon.active {
+  transform: rotate(90deg);
+}
