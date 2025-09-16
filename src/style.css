@@ -6,7 +6,8 @@ body {
 }
 
 @theme {
-  --color-primary: #93a996;
+  --color-p1: #93a996;
+  --color-p2: #77897a;
 }
 
 .menu-enter {
@@ -61,4 +62,27 @@ body {
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+.btn {
+  display: block;
+  font-size: 1.125rem; /* text-lg */
+  background-color: var(--color-p1); /* bg-primary */
+  font-weight: 700; /* font-bold */
+  padding: 0.75rem 2rem; /* py-3 px-8 */
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff; /* text-white */
+  transition: background-color 0.3s ease; /* transition-colors duration-300 */
+  max-width: 20rem; /* max-w-xs */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md */
+  outline: none; /* focus:outline-none */
+}
+
+.btn:hover {
+  background-color: var(--color-p2); /* hover:bg-primary-dark */
+}
+
+.btn:focus {
+  box-shadow: 0 0 0 2px var(--color-p1), 0 0 0 4px white; /* focus:ring-2 focus:ring-offset-2 focus:ring-primary */
 }
