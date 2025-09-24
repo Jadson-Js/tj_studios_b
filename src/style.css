@@ -133,3 +133,16 @@ body {
   );
   border-radius: 50%;
 }
+
+.hero-bg {
+  background: linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0.4) 40%,
+      rgba(0, 0, 0, 0.8) 100%
+    ),
+    url("/public/bg-hero-1920x1280.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}

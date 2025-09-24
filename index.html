@@ -8,6 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+
+
 </head>
 
 <body>
@@ -16,27 +18,31 @@
     <div class="container mx-auto py-4 px-4 md:px-8">
       <div class="flex items-center justify-between">
         <a href="#" class="text-4xl ">TJ Studios</a>
-        <ul class="hidden md:flex items-center gap-4  uppercase">
-          <li><a href="#" class="cursor-pointer hover:text-stone-900">Início</a></li>
-          <li><a href="#" class="cursor-pointer hover:text-stone-900">Galeria</a></li>
-          <li class="hidden lg:inline"><a href="#" class="cursor-pointer hover:text-stone-900">Por Quê Nós</a></li>
-          <li class="hidden lg:inline"><a href="#" class="cursor-pointer hover:text-stone-900">Sobre</a></li>
-          <li><a href="#" class="cursor-pointer hover:text-stone-900">Testemunhas</a></li>
-          <li><a href="#" class="cursor-pointer hover:text-stone-900">FAQ</a></li>
+
+        <!-- DESKTOP -->
+        <ul class="hidden md:flex items-center gap-4 uppercase font-semibold text-stone-500">
+          <li><a href="#" class="cursor-pointer hover:text-stone-700">Início</a></li>
+          <li><a href="#" class="cursor-pointer hover:text-stone-700">Galeria</a></li>
+          <li class="hidden lg:inline"><a href="#" class="cursor-pointer hover:text-stone-700">Por Quê Nós</a></li>
+          <li class="hidden lg:inline"><a href="#" class="cursor-pointer hover:text-stone-700">Sobre</a></li>
+          <li><a href="#" class="cursor-pointer hover:text-stone-700">Testemunhas</a></li>
+          <li><a href="#" class="cursor-pointer hover:text-stone-700">FAQ</a></li>
           <li>
-            <a href="#" class="font-bold cursor-pointer uppercase border-b border-stone-500
-            hover:text-stone-900  transition-transform duration-200">
-              Solicite um Orçamento
+            <a href="#" class="text-lg font-bold cursor-pointer border-b
+            text-stone-700 border-stone-500">
+              Solicite um orçamento
             </a>
           </li>
         </ul>
+
+        <!-- MOBILE -->
         <button id="menu-toggle" class="md:hidden focus:outline-none p-2" aria-label="Abrir menu">
           <svg class="h-6 w-6 menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
           </svg>
         </button>
       </div>
-      <ul id="mobile-menu" class="menu-hidden overflow-hidden bg-white md:hidden">
+      <ul id="mobile-menu" class="menu-hidden overflow-hidden bg-white md:hidden text-lg">
         <li class="border-t border-stone-200 mt-4"><a href="#" class="block p-2">Início</a></li>
         <li><a href="#" class="block p-2">Galeria</a></li>
         <li><a href="#" class="block p-2">Por Quê Nós</a></li>
@@ -53,17 +59,67 @@
   </nav>
 
   <!-- HERO -->
-  <section class="h-screen flex flex-col justify-center text-white bg-cover bg-center" style="background-image: url('bg-hero.jpeg');">
-    <div class="container mx-auto px-4 py-8  md:px-8 md:py-16">
+  <section class="mt-18 min-h-screen flex items-center justify-center hero-bg">
 
-      <h1 class="mb-8 font-medium text-5xl md:text-6xl xl:text-7xl 2xl:text-8xl md:max-w-2/3">
-        Transformamos o inesquecível em memórias eternas.
+    <div class="container mx-auto px-4 py-8  md:px-8 md:py-16 text-center">
+      <!-- Main Content -->
+
+      <!-- Main Headline -->
+      <h1 class="text-6xl lg:text-8xl text-white mb-8 leading-tight">
+        Eternizamos Momentos Únicos
       </h1>
-      <a href="#" class="btn max-w-xs">
-        SOLICITE UM ORÇAMENTO
-      </a>
+
+      <!-- Description -->
+      <p class="text-xl lg:text-2xl text-stone-100 mb-12 max-w-3xl mx-auto leading-relaxed">
+        Criamos arte através da fotografia, capturando a essência e emoção de cada momento com elegância e sofisticação incomparáveis.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="flex  justify-center mb-20">
+        <a href="#" class="btn max-w-xs">
+          Solicite um orçamento
+        </a>
+      </div>
+
+      <!-- Stats Section -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div class="flex flex-col py-8 bg-white/20
+        backdrop-blur-sm
+        border border-stone-500
+        shadow-lg">
+          <span class="text-4xl font-bold text-p1 mb-2">500+</span>
+          <span class="text-white font-medium">Clientes Satisfeitos</span>
+        </div>
+
+        <div class="flex flex-col py-8 bg-white/20
+        backdrop-blur-sm
+        border border-stone-500
+        shadow-lg">
+          <span class="text-4xl font-bold text-p1 mb-2">15+</span>
+          <span class="text-white font-medium">Anos de Experiência</span>
+        </div>
+
+        <div class="flex flex-col py-8 bg-white/20
+        backdrop-blur-sm
+        border border-stone-500
+        shadow-lg">
+          <span class="text-4xl font-bold text-p1 mb-2">50+</span>
+          <span class="text-white font-medium">Prêmios Conquistados</span>
+        </div>
+      </div>
     </div>
+
+
+
+    <!-- Decorative Elements -->
+    <div class="absolute top-1/4 left-10 w-2 h-32 bg-gradient-to-b from-p1 to-transparent opacity-60"></div>
+    <div class="absolute bottom-1/4 right-10 w-2 h-32 bg-gradient-to-t from-p1 to-transparent opacity-60"></div>
+
+    <!-- Floating Geometric Shapes -->
+    <div class="absolute top-20 right-20 w-20 h-20 border border-p1 opacity-20 floating-animation"></div>
+    <div class="absolute bottom-40 left-20 w-16 h-16 bg-p1 opacity-10 rounded-full floating-animation"></div>
   </section>
+
 
   <!-- GALERY -->
   <section>
@@ -368,7 +424,7 @@
       <div class="border-stone-300 border-t-1 border-b-1 md:flex md:flex-row md:border-b-0">
 
         <div class="flex-1 flex flex-col">
-          <article class="flex flex-row items-start gap-2 border-b-1 p-6 border-stone-300 md:border-r-1">
+          <article class="flex flex-row justify-between items-start gap-2 border-b-1 p-6 border-stone-300 md:border-r-1">
             <!-- Text -->
             <div>
               <h3 class="text-xl mb-2">Que tipo de fotografia a TJ Studios é especializada?</h3>
@@ -385,7 +441,7 @@
               </svg>
             </button>
           </article>
-          <article class="flex flex-row items-start gap-2 border-b-1 p-6 border-stone-300 md:border-r-1 md:border-b-0">
+          <article class="flex flex-row justify-between items-start gap-2 border-b-1 p-6 border-stone-300 md:border-r-1 md:border-b-0">
             <!-- Text -->
             <div>
               <h3 class="text-xl mb-2">Que tipo de fotografia a TJ Studios é especializada?</h3>
@@ -402,7 +458,7 @@
         </div>
 
         <div class="flex-1 flex flex-col">
-          <article class="flex flex-row items-start gap-2 border-b-1 p-6 border-stone-300">
+          <article class="flex flex-row justify-between items-start gap-2 border-b-1 p-6 border-stone-300">
             <!-- Text -->
             <div>
               <h3 class="text-xl mb-2">Que tipo de fotografia a TJ Studios é especializada?</h3>
@@ -420,7 +476,7 @@
             </button>
           </article>
 
-          <article class="flex flex-row items-start gap-2 border-b-1 p-6 border-stone-300 md:border-b-0">
+          <article class="flex flex-row justify-between items-start gap-2 border-b-1 p-6 border-stone-300 md:border-b-0">
             <!-- Text -->
             <div>
               <h3 class="text-xl mb-2">Que tipo de fotografia a TJ Studios é especializada?</h3>
@@ -442,6 +498,35 @@
       </div>
     </div>
   </section>
+
+  <!-- CTA -->
+  <section class="bg-no-repeat bg-cover bg-bottom" style="background-image: url('https://images.pexels.com/photos/827210/pexels-photo-827210.jpeg');">
+    <div class="flex flex-col justify-center items-center container mx-auto px-4 py-12 md:px-8 md:py-16 max-w-6xl">
+
+      <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight text-white mb-8 text-center">
+        Momentos únicos merecem ser registrados por especialistas
+      </h2>
+      <button class="btn">
+        Solicite um orçamento
+      </button>
+
+    </div>
+  </section>
+
+  <footer class="">
+    <div class="gap-8 md:gap-12 container mx-auto px-4 py-4 md:px-8 md:py-8">
+      <div class="flex flex-col items-center text-center">
+
+
+        <a href="#" class="text-7xl md:text-9xl mb-8">TJ Studios</a>
+
+
+        <p class=" text-lg ">&copy; TJ Studios, All Rights Reserved.</p>
+
+
+      </div>
+    </div>
+  </footer>
 
   <script type="module" src="./src/main.js"></script>
 </body>
