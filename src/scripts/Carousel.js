@@ -47,7 +47,7 @@ export class Carousel {
     });
 
     // Adicionar clones no início
-    for (let i = this.originalCards.length - 1; i >= 0; i--) {
+    for (let i = this.originalCards.length - 1; i >= 1; i--) {
       const clone = this.originalCards[i].cloneNode(true);
       clone.classList.add("cloned-card");
       carouselContainer.insertBefore(clone, carouselContainer.firstChild);
@@ -333,7 +333,7 @@ export class Carousel {
   }
 
   moveCards() {
-    const distance = `calc(${this.currentPage} * -20%)`;
+    const distance = `calc((${this.currentPage} * -20%) - 1rem)`;
     this.carousel.style.transform = `translateX(${distance})`;
 
     if (!this.carousel.style.transition) {
