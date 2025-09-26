@@ -146,3 +146,8 @@ body {
   background-position: center;
   background-attachment: fixed;
 }
+
+#carousel {
+  will-change: transform;
+  transform: translate3d(0, 0, 0); /* Força camada de compositing */
+}
