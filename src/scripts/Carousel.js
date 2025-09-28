@@ -3,7 +3,7 @@ export class Carousel {
     this.carousel = document.querySelector("#carousel");
     this.originalCards = document.querySelectorAll("[data-card]");
     this.totalCards = this.originalCards.length;
-    this.cloneCount = 2;
+    this.cloneCount = 3;
     this.currentPage = this.cloneCount;
 
     this.createClones();
@@ -22,44 +22,6 @@ export class Carousel {
 
     this.next();
     this.prev();
-  }
-
-  next() {
-    this.nextBtn.addEventListener("click", () => {
-      this.currentPage++;
-      this.moveCarousel();
-      this.updateCardStyle();
-    });
-  }
-
-  prev() {
-    this.prevBtn.addEventListener("click", () => {
-      this.currentPage--;
-      this.moveCarousel();
-      this.updateCardStyle();
-    });
-  }
-
-  moveCarousel() {
-    const distance = `calc(${this.currentPage} * -20%)`;
-    this.carousel.style.transform = `translateX(${distance})`;
-  }
-
-  updateCardStyle() {
-    this.originalCards.forEach((card, index) => {
-      card.classList.remove(
-        "w-[calc(125%/5)]",
-        "w-[calc(93.75%/5)]",
-        "md:h-125",
-        "md:h-100",
-      );
-
-      if (index === this.currentPage) {
-        card.classList.add("w-[calc(125%/5)]", "md:h-125");
-      } else {
-        card.classList.add("w-[calc(93.75%/5)]", "md:h-100");
-      }
-    });
   }
 
   createClones() {
@@ -96,5 +58,81 @@ export class Carousel {
       );
       this.carousel.appendChild(clone);
     }
+  }
+
+  next() {
+    this.nextBtn.addEventListener("click", () => {
+      if (this.currentPage == 5) {
+        this.handleLoop(0);
+      } else {
+        this.currentPage++;
+        this.updateCardStyle();
+        this.moveCarousel();
+      }
+    });
+  }
+
+  prev() {
+    this.prevBtn.addEventListener("click", () => {
+      if (this.currentPage == 0) {
+        this.handleLoop(4);
+      } else {
+        this.currentPage--;
+        this.updateCardStyle();
+        this.moveCarousel();
+      }
+    });
+  }
+
+  moveCarousel() {
+    const distance = `calc(${this.currentPage} * -20%)`;
+    this.carousel.style.transform = `translateX(${distance})`;
+  }
+
+  updateCardStyle() {
+    this.originalCards.forEach((card, index) => {
+      card.classList.remove(
+        "w-[calc(125%/5)]",
+        "w-[calc(100%/5)]",
+        "md:h-125",
+        "md:h-100",
+      );
+
+      if (index === this.currentPage - 1) {
+        console.log(
+          index,
+          " <- index | currentPage - 1 -> ",
+          this.currentPage - 1,
+        );
+
+        card.classList.add("w-[calc(125%/5)]", "md:h-125");
+      } else {
+        card.classList.add("w-[calc(100%/5)]", "md:h-100");
+      }
+    });
+  }
+
+  handleLoop(position) {
+    const startCard = this.allCards[2];
+    const endCard = this.allCards[5];
+
+    this.carousel.classList.remove("transition-all", "duration-900");
+    startCard.classList.remove("transition-all", "duration-900");
+    startCard.classList.remove("w-[calc(100%/5)]", "md:h-100");
+    startCard.classList.add("w-[calc(125%/5)]", "md:h-125");
+    this.currentPage = position;
+    this.moveCarousel();
+
+    setTimeout(() => {
+      this.carousel.classList.add("transition-all", "duration-900");
+      startCard.classList.add("transition-all", "duration-900");
+
+      startCard.classList.remove("w-[calc(125%/5)]", "md:h-125");
+      startCard.classList.add("w-[calc(100%/5)]", "md:h-100");
+
+      this.currentPage = position + 1;
+      this.updateCardStyle();
+      this.moveCarousel();
+    }, 0);
   }
 }
