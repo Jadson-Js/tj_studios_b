@@ -13,6 +13,8 @@ export class Carousel {
     this.nextBtn = document.getElementById("nextBtn");
     this.prevBtn = document.getElementById("prevBtn");
 
+    this.title = document.getElementById("galeryCardTitle");
+
     this.init();
   }
 
@@ -38,9 +40,10 @@ export class Carousel {
         "border-white",
         "transition-all",
         "duration-900",
-        "w-[calc(100%/5)]",
         "md:h-100",
       );
+
+      clone.style.flexBasis = "19%";
       this.carousel.insertBefore(clone, this.carousel.firstChild);
     }
 
@@ -53,19 +56,21 @@ export class Carousel {
         "border-white",
         "transition-all",
         "duration-900",
-        "w-[calc(100%/5)]",
         "md:h-100",
       );
+
+      clone.style.flexBasis = "19%";
       this.carousel.appendChild(clone);
     }
   }
 
   next() {
     this.nextBtn.addEventListener("click", () => {
-      if (this.currentPage == 5) {
-        this.handleLoop(0);
+      this.currentPage++;
+
+      if (this.currentPage == 6) {
+        this.handleLoop(1);
       } else {
-        this.currentPage++;
         this.updateCardStyle();
         this.moveCarousel();
       }
@@ -74,65 +79,93 @@ export class Carousel {
 
   prev() {
     this.prevBtn.addEventListener("click", () => {
+      this.currentPage--;
+
       if (this.currentPage == 0) {
-        this.handleLoop(4);
+        this.handleLoop(5);
       } else {
-        this.currentPage--;
         this.updateCardStyle();
         this.moveCarousel();
       }
     });
   }
 
-  moveCarousel() {
-    const distance = `calc(${this.currentPage} * -20%)`;
+  moveCarousel(loop) {
+    /* let distance = 0;
+
+    for (let i = 0; i < this.currentPage; i++) {
+      distance += this.allCards[i].offsetWidth;
+    }
+
+    this.carousel.style.transform = `translateX(-${distance}px)`; */
+    let distance;
+    if (loop) {
+      distance = `calc(${this.currentPage} * -20%)`;
+    } else {
+      distance = `calc(${this.currentPage} * -19%)`;
+    }
+
     this.carousel.style.transform = `translateX(${distance})`;
   }
 
   updateCardStyle() {
     this.originalCards.forEach((card, index) => {
-      card.classList.remove(
-        "w-[calc(125%/5)]",
-        "w-[calc(100%/5)]",
-        "md:h-125",
-        "md:h-100",
-      );
+      card.classList.remove("md:h-125", "md:h-100");
 
       if (index === this.currentPage - 1) {
-        console.log(
-          index,
-          " <- index | currentPage - 1 -> ",
-          this.currentPage - 1,
-        );
+        card.style.flexBasis = "24%";
+        card.classList.add("md:h-125");
 
-        card.classList.add("w-[calc(125%/5)]", "md:h-125");
+        this.title.innerText = card.getAttribute("data-card");
       } else {
-        card.classList.add("w-[calc(100%/5)]", "md:h-100");
+        card.style.flexBasis = "19%";
+        card.classList.add("md:h-100");
       }
     });
   }
 
+  resetCardStyle() {
+    this.originalCards.forEach((card, index) => {
+      card.style.flexBasis = "20%";
+    });
+  }
+
   handleLoop(position) {
-    const startCard = this.allCards[2];
-    const endCard = this.allCards[5];
+    const nextCard = this.allCards[2];
+    const prevCard = this.allCards[8];
+    const targetCard = position == 1 ? nextCard : prevCard;
 
+    // Remove transições
     this.carousel.classList.remove("transition-all", "duration-900");
-    startCard.classList.remove("transition-all", "duration-900");
-    startCard.classList.remove("w-[calc(100%/5)]", "md:h-100");
-    startCard.classList.add("w-[calc(125%/5)]", "md:h-125");
-    this.currentPage = position;
-    this.moveCarousel();
+    targetCard.classList.remove("transition-all", "duration-900");
 
-    setTimeout(() => {
-      this.carousel.classList.add("transition-all", "duration-900");
-      startCard.classList.add("transition-all", "duration-900");
+    // Atualiza posição
+    this.currentPage = position == 1 ? position - 1 : position + 1;
+    this.resetCardStyle();
+    this.moveCarousel(true);
 
-      startCard.classList.remove("w-[calc(125%/5)]", "md:h-125");
-      startCard.classList.add("w-[calc(100%/5)]", "md:h-100");
+    // Muda tamanho
+    targetCard.classList.remove("md:h-100");
+    targetCard.classList.add("md:h-125");
+    targetCard.style.flexBasis = "24%";
 
-      this.currentPage = position + 1;
-      this.updateCardStyle();
-      this.moveCarousel();
-    }, 0);
+    // Força repaint antes de animar
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        this.currentPage = position;
+
+        // Restaura transições
+        this.carousel.classList.add("transition-all", "duration-900");
+        targetCard.classList.add("transition-all", "duration-900");
+
+        this.moveCarousel();
+        this.updateCardStyle();
+
+        // Reverte tamanho (agora com transição)
+        targetCard.classList.remove("md:h-125");
+        targetCard.style.flexBasis = "19%";
+        targetCard.classList.add("md:h-100");
+      });
+    });
   }
 }
