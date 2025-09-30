@@ -44,6 +44,17 @@ body {
   }
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .menu-hidden {
   display: none;
 }
@@ -150,4 +161,24 @@ body {
 #carousel {
   will-change: transform;
   transform: translate3d(0, 0, 0); /* Força camada de compositing */
+}
+
+.quote-mark {
+  position: absolute;
+  top: -10px;
+  left: -5px;
+  font-size: 120px;
+  font-family: Georgia, serif;
+  opacity: 0.1;
+  line-height: 1;
+  z-index: 0;
+}
+
+.testimonial-item {
+  display: none;
+}
+
+.testimonial-item.active {
+  display: flex;
+  animation: fadeIn 0.5s ease-in-out;
 }
