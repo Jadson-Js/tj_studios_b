@@ -1,15 +1,15 @@
 export function testemunity() {
   const items = document.querySelectorAll(".testimonial-item");
-  const prevBtn = document.getElementById("prevBtnTestemunity");
-  const nextBtn = document.getElementById("nextBtnTestemunity");
+  const prevBtn = document.querySelectorAll(".prevBtnTestemunity");
+  const nextBtn = document.querySelectorAll(".nextBtnTestemunity");
   const indicators = document.querySelectorAll(".indicator");
 
   let currentIndex = 0;
   const totalItems = items.length;
 
   // Event listeners para botões
-  nextBtn.addEventListener("click", nextItem);
-  prevBtn.addEventListener("click", prevItem);
+  nextBtn.forEach((item) => item.addEventListener("click", nextItem));
+  prevBtn.forEach((item) => item.addEventListener("click", prevItem));
 
   // Função para mostrar item específico
   function showItem(index) {
