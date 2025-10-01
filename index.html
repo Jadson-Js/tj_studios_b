@@ -438,32 +438,36 @@
             </p>
           </div>
 
-          <form action="#" method="POST" class="space-y-6">
-            <!-- Name Field -->
+          <form name="orcamento" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="space-y-6">
+            <input type="hidden" name="form-name" value="orcamento" />
+
+            <div class="hidden">
+              <label>
+                Não preencha este campo se você for humano: <input name="bot-field" />
+              </label>
+            </div>
+
             <div class="relative flex flex-col">
               <label for="name" class="inline-block text-lg mb-2 tracking-wide">
                 Nome Completo
               </label>
-              <input type="text" id="name" name="name" placeholder="Digite seu nome completo" class="font-serif input-focus px-4 py-4 bg-white border-1 border-stone-200 placeholder-stone-400 focus:outline-none focus:border-p1 focus:ring-1 focus:ring-p1/20 text-sm">
+              <input type="text" id="name" name="name" placeholder="Digite seu nome completo" class="font-serif input-focus px-4 py-4 bg-white border-1 border-stone-200 placeholder-stone-400 focus:outline-none focus:border-p1 focus:ring-1 focus:ring-p1/20 text-sm" required>
             </div>
 
-            <!-- Phone Field -->
             <div class="relative flex flex-col">
               <label for="phone" class="inline-block text-lg mb-2 tracking-wide">
                 Telefone
               </label>
-              <input type="tel" id="phone" name="phone" placeholder="(11) 99999-9999" class="font-serif input-focus px-4 py-4 bg-white border-1 border-stone-200 placeholder-stone-400 focus:outline-none focus:border-p1 focus:ring-1 focus:ring-p1/20 text-sm">
+              <input type="tel" id="phone" name="phone" placeholder="(11) 99999-9999" class="font-serif input-focus px-4 py-4 bg-white border-1 border-stone-200 placeholder-stone-400 focus:outline-none focus:border-p1 focus:ring-1 focus:ring-p1/20 text-sm" required>
             </div>
 
-            <!-- Message Field -->
             <div class="relative flex flex-col">
               <label for="message" class="inline-block text-lg mb-2 tracking-wide">
                 Conte-nos sobre seu projeto
               </label>
-              <textarea id="message" name="message" rows="3" placeholder="Descreva brevemente o tipo de sessão fotográfica que você tem em mente..." class="font-serif input-focus px-4 py-4 bg-white border-1 border-stone-200 placeholder-stone-400 focus:outline-none focus:border-p1 focus:ring-1 focus:ring-p1/20 text-sm resize-none"></textarea>
+              <textarea id="message" name="message" rows="3" placeholder="Descreva brevemente o tipo de sessão fotográfica que você tem em mente..." class="font-serif input-focus px-4 py-4 bg-white border-1 border-stone-200 placeholder-stone-400 focus:outline-none focus:border-p1 focus:ring-1 focus:ring-p1/20 text-sm resize-none" required></textarea>
             </div>
 
-            <!-- Submit Button -->
             <div class="pt-4">
               <button type="submit" class="btn w-full max-w-none">
                 Solicitar Orçamento
