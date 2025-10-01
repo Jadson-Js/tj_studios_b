@@ -204,3 +204,11 @@ body {
   background-color: #78716c;
   width: 2rem;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 4.5rem;
+}
