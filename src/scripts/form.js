@@ -1,12 +1,13 @@
 export function form() {
   const form = document.getElementById("contact-form");
-  const successMessage = document.getElementById("success-message");
+  const modalOverlay = document.getElementById("modal-overlay");
+  const btnCloseModal = document.getElementById("btn-close-modal");
 
   // Adiciona um "ouvinte" para o evento de 'submit' do formulário
   form.addEventListener("submit", function (event) {
     // 1. Previne o comportamento padrão do formulário (que é recarregar a página)
     event.preventDefault();
-
+    /*
     // 2. Cria um objeto com os dados do formulário
     const formData = new FormData(form);
 
@@ -18,13 +19,13 @@ export function form() {
     })
       .then((response) => {
         // Quando a Netlify responde, verificamos se foi um sucesso
-        if (response.ok) {
-          // Se deu certo:
-          // - Esconde o formulário
-          form.classList.add("hidden");
-          // - Mostra o card de agradecimento
-          successMessage.classList.remove("hidden");
-        } else {
+        if (response.ok) { */
+    // Se deu certo:
+    // - Esconde o formulário
+    // - Mostra o card de agradecimento
+    modalOverlay.classList.remove("hidden");
+
+    /* } else {
           // Se deu errado, lança um erro para ser pego pelo .catch()
           throw new Error("Houve um problema com o envio do formulário.");
         }
@@ -35,6 +36,10 @@ export function form() {
         alert(
           "Desculpe, ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente mais tarde.",
         );
-      });
+      }); */
+  });
+
+  btnCloseModal.addEventListener("click", () => {
+    modalOverlay.classList.add("hidden");
   });
 }

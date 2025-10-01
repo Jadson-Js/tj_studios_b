@@ -214,7 +214,7 @@
             </p>
           </div>
 
-          <a href="#" class="btn max-w-xs">
+          <a href="#form" class="btn max-w-xs">
             Solicite um orçamento
           </a>
         </div>
@@ -251,7 +251,7 @@
             </p>
           </div>
 
-          <a href="#" class="btn max-w-xs">
+          <a href="#form" class="btn max-w-xs">
             SOLICITE UM ORÇAMENTO
           </a>
         </div>
@@ -438,7 +438,8 @@
             </p>
           </div>
 
-          <form id="contact-form" name="orcamento" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="space-y-6">
+          <!-- <form id="contact-form" name="orcamento" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="space-y-6"> -->
+          <form id="contact-form" class="space-y-6">
             <input type="hidden" name="form-name" value="orcamento" />
 
             <div class="hidden">
@@ -469,16 +470,11 @@
             </div>
 
             <div class="pt-4">
-              <button type="submit" class="btn w-full max-w-none">
+              <button type="submit" class="btn w-full max-w-none cursor-pointer">
                 Solicitar Orçamento
               </button>
             </div>
           </form>
-
-          <div id="success-message" class="hidden rounded-lg bg-green-100 p-6 text-center shadow-md">
-            <h3 class="text-2xl font-semibold text-green-800">Obrigado pelo seu contato!</h3>
-            <p class="mt-2 text-green-700">Recebemos sua solicitação e entraremos em contato em breve.</p>
-          </div>
 
           <!-- Contact Info -->
           <div class="mt-8 pt-6 border-t border-gray-200 text-center">
@@ -493,6 +489,38 @@
     <!-- Decorative geometric shapes -->
     <div class="absolute top-20 left-10 w-24 h-24 border border-amber-500/20 rounded-full animate-pulse hidden lg:block"></div>
     <div class="absolute bottom-32 right-20 w-16 h-16 bg-gradient-to-br from-amber-500/10 to-transparent rounded-full hidden lg:block"></div>
+
+    <!-- Modal Overlay -->
+    <div id="modal-overlay" class="hidden fixed inset-0 bg-black/80 bg-opacity-50 backdrop-blur-xs flex items-center justify-center p-4 z-50 transition-opacity modal-overlay">
+
+      <!-- Modal Container -->
+      <div id="modal-container" class="bg-white  shadow-2xl max-w-md w-full p-8 transform transition-all">
+
+        <!-- Ícone de Sucesso -->
+        <div class="flex justify-center mb-6">
+          <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
+            <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Título -->
+        <h2 class="text-2xl font-semibold text-gray-800 text-center mb-3">
+          Mensagem Enviada!
+        </h2>
+
+        <!-- Descrição -->
+        <p class="text-gray-600 text-center mb-8">
+          Obrigado pelo contato. Responderemos em breve.
+        </p>
+
+        <!-- Botão de Fechar -->
+        <button id="btn-close-modal" class="btn w-full py-3 text-white transition-colors ">
+          Fechar
+        </button>
+
+      </div>
   </section>
 
   <!-- FAQ -->
@@ -581,7 +609,7 @@
       <h2 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight text-white mb-16 text-center">
         Momentos únicos merecem ser registrados por especialistas
       </h2>
-      <button class="btn w-full max-w-md">
+      <button href="#form" class="btn w-full max-w-md">
         Solicite um orçamento
       </button>
 
