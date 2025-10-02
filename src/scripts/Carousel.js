@@ -18,6 +18,7 @@ export class Carousel {
     this.title = document.getElementById("galeryCardTitle");
 
     this.init();
+    this.handleResize();
   }
 
   init() {
@@ -26,6 +27,44 @@ export class Carousel {
 
     this.next();
     this.prev();
+  }
+
+  handleResize() {
+    let resizeTimer;
+
+    window.addEventListener("resize", () => {
+      // Debounce para evitar múltiplas execuções
+      clearTimeout(resizeTimer);
+
+      resizeTimer = setTimeout(() => {
+        const wasMobile = this.isMobile;
+        this.isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+        // Só atualiza se houve mudança de mobile/desktop
+        if (wasMobile !== this.isMobile) {
+          this.updateAllCardsStyle();
+          this.updateCardStyle();
+          this.moveCarousel();
+        }
+      }, 150);
+    });
+  }
+
+  updateAllCardsStyle() {
+    const border = this.isMobile ? "border-none" : "border-8";
+
+    this.allCards.forEach((card) => {
+      // Remove classes antigas
+      card.classList.remove("border-none", "border-8");
+
+      // Adiciona classe correta
+      card.classList.add(border);
+
+      // Atualiza flexBasis base
+      if (!card.classList.contains("active-card")) {
+        card.style.flexBasis = this.isMobile ? "10%" : "19%";
+      }
+    });
   }
 
   createClones() {
@@ -72,7 +111,13 @@ export class Carousel {
   }
 
   next() {
+    let canClick = true;
+
     this.nextBtn.addEventListener("click", () => {
+      if (!canClick) return;
+
+      canClick = false;
+
       this.currentPage++;
 
       if (this.currentPage == 6) {
@@ -81,11 +126,21 @@ export class Carousel {
         this.updateCardStyle();
         this.moveCarousel();
       }
+
+      setTimeout(() => {
+        canClick = true;
+      }, 500);
     });
   }
 
   prev() {
+    let canClick = true;
+
     this.prevBtn.addEventListener("click", () => {
+      if (!canClick) return;
+
+      canClick = false;
+
       this.currentPage--;
 
       if (this.currentPage == 0) {
@@ -94,6 +149,10 @@ export class Carousel {
         this.updateCardStyle();
         this.moveCarousel();
       }
+
+      setTimeout(() => {
+        canClick = true;
+      }, 500);
     });
   }
 
@@ -132,43 +191,6 @@ export class Carousel {
       }
     });
   }
-
-  /* handleLoop(position) {
-    const nextCard = this.allCards[2];
-    const prevCard = this.allCards[8];
-    const targetCard = position == 1 ? nextCard : prevCard;
-
-    // Remove transições
-    this.carousel.classList.remove("transition-all", "duration-900");
-    targetCard.classList.remove("transition-all", "duration-900");
-
-    // Atualiza posição
-    this.currentPage = position == 1 ? position - 1 : position + 1;
-    this.moveCarousel(true);
-
-    // Muda tamanho
-    targetCard.classList.remove("h-100", "h-80", "md:h-100", "h-125");
-    targetCard.classList.add(this.isMobile ? "h-100" : "md:h-125");
-    targetCard.style.flexBasis = this.isMobile ? "80%" : "24%";
-
-    // Força repaint antes de animar
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        // Restaura transições
-        this.carousel.classList.add("transition-all", "duration-900");
-        targetCard.classList.add("transition-all", "duration-900");
-
-        this.currentPage = position;
-        this.updateCardStyle();
-        this.moveCarousel();
-
-        // Reverte tamanho (agora com transição)
-        targetCard.classList.remove("h-100", "h-80", "md:h-125", "md:h-100");
-        targetCard.style.flexBasis = this.isMobile ? "10%" : "19%";
-        targetCard.classList.add(this.isMobile ? "h-80" : "md:h-100");
-      });
-    });
-  } */
 
   handleLoop(position) {
     const nextCard = this.allCards[2];
